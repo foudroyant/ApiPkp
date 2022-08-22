@@ -1,4 +1,5 @@
 const sqlite3 = require('sqlite3').verbose();
+var path = require('path');
 const db = new sqlite3.Database(path.join(__dirname,"../../matth25v6_fr.db"));
 
 
