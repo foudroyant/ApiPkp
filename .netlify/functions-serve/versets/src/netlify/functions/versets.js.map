@@ -1,0 +1,8 @@
+{
+  "version": 3,
+  "sources": ["netlify/functions/versets.js"],
+  "sourceRoot": "C:/Users/kenn/AppData/Local/Temp/tmp-7332-NJlITYbGQ673",
+  "sourcesContent": ["const sqlite3 = require('sqlite3').verbose();\r\nvar path = require('path');\r\nconst db = new sqlite3.Database(path.join(__dirname,\"../../matth25v6_fr.db\"));\r\n//const db = new sqlite3.Database(\"./matth25v6_fr.db\");\r\n\r\n\r\nexports.handler= async function(event,context){ \r\n    const chapitre=event.queryStringParameters.chapitre\r\n    const data=getVersets(chapitre || 1).then(res=>{\r\n        return res\r\n    })\r\n    return{\r\n        statusCode:200,\r\n        body:JSON.stringify(await data)\r\n    } \r\n    \r\n}\r\n\r\nconst getVersets=(chapitre)=>{\r\n    const promesse=new Promise((resolve, reject)=>{\r\n        db.all(\"SELECT * FROM verset WHERE num_pred=\"+chapitre, (err, rows) => {\r\n            //console.log(rows);\r\n            resolve(rows)\r\n        });\r\n        db.close();\r\n    })\r\n    return promesse\r\n    \r\n}"],
+  "mappings": ";AAAA,IAAM,UAAU,QAAQ,WAAW,QAAQ;AAC3C,IAAI,OAAO,QAAQ;AACnB,IAAM,KAAK,IAAI,QAAQ,SAAS,KAAK,KAAK,WAAU,uBAAuB,CAAC;AAI5E,QAAQ,UAAS,eAAe,OAAM,SAAQ;AAC1C,QAAM,WAAS,MAAM,sBAAsB;AAC3C,QAAM,OAAK,WAAW,YAAY,CAAC,EAAE,KAAK,SAAK;AAC3C,WAAO;AAAA,EACX,CAAC;AACD,SAAM;AAAA,IACF,YAAW;AAAA,IACX,MAAK,KAAK,UAAU,MAAM,IAAI;AAAA,EAClC;AAEJ;AAEA,IAAM,aAAW,CAAC,aAAW;AACzB,QAAM,WAAS,IAAI,QAAQ,CAAC,SAAS,WAAS;AAC1C,OAAG,IAAI,yCAAuC,UAAU,CAAC,KAAK,SAAS;AAEnE,cAAQ,IAAI;AAAA,IAChB,CAAC;AACD,OAAG,MAAM;AAAA,EACb,CAAC;AACD,SAAO;AAEX;",
+  "names": []
+}

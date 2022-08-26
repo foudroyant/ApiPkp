@@ -1,5 +1,26 @@
 {
   "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "express": "^4.18.1",
+    "node-fetch": "^2.6.7",
+    "serverless-http": "^3.0.2",
     "sqlite3": "^5.0.11"
-  }
+  },
+  "name": "apipkp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/foudroyant/ApiPkp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/foudroyant/ApiPkp/issues"
+  },
+  "homepage": "https://github.com/foudroyant/ApiPkp#readme",
+  "description": ""
 }
